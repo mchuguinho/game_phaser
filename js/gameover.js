@@ -9,6 +9,11 @@ class GameOver extends Phaser.Scene {
     this.load.audio("derrota", "assets/lostgame.wav");
   }
 
+  init(data) {
+    //trazer o tempo final de jogo
+    this.tempo = data.tempo;
+  }
+
   create() {
     //tocar a musica de derrota
     this.sound.play("derrota", { volume: 0.1 });
@@ -25,7 +30,21 @@ class GameOver extends Phaser.Scene {
         "Perdeu as vidas todas!",
         {
           fontSize: "40px",
-          fontFamily: "Pixelify Sans",
+          fontFamily: "tudo",
+          fill: "#000000",
+          fontWeight: "bold",
+        }
+      )
+      .setOrigin(0.5);
+
+      this.add
+      .text(
+        this.scale.width / 2,
+        this.scale.height / 2 + 80,
+        "Jogaste durante " + this.tempo + " segundos!",
+        {
+          fontSize: "30px",
+          fontFamily: "tudo",
           fill: "#000000",
           fontWeight: "bold",
         }
@@ -36,7 +55,7 @@ class GameOver extends Phaser.Scene {
     const goBackBg = this.add
       .rectangle(
         this.scale.width / 2,
-        this.scale.height / 2 + 80,
+        this.scale.height / 2 + 160,
         300, //largura do botao
         40, //altura do botao
         0xff0000, // cor do botao
@@ -48,12 +67,12 @@ class GameOver extends Phaser.Scene {
     const goBack = this.add
       .text(
         this.scale.width / 2,
-        this.scale.height / 2 + 80,
+        this.scale.height / 2 + 160,
         "Voltar ao menu principal",
         {
           fontSize: "24px",
           fill: "#FFFFFF",
-          fontFamily: "Pixelify Sans",
+          fontFamily: "tudo",
         }
       )
       .setOrigin(0.5)

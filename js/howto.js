@@ -17,7 +17,7 @@ class HowTo extends Phaser.Scene {
     this.add
       .text(this.scale.width / 2, this.scale.height / 2 - 100, "Como jogar:", {
         fontSize: "40px",
-        fontFamily: "Pixelify Sans",
+        fontFamily: "tudo",
         fill: "#000000",
         fontWeight: "bold",
       })
@@ -30,7 +30,7 @@ class HowTo extends Phaser.Scene {
         "O objetivo do jogo é coletar as energias e armazená-las no baú.\nO jogador é movimentado através das setas do teclado! \nEvite os inimigos para não perder o jogo!",
         {
           fontSize: "20px",
-          fontFamily: "Pixelify Sans",
+          fontFamily: "tudo",
           fill: "#000000",
           fontWeight: "bold",
           align: "center",
@@ -57,7 +57,7 @@ class HowTo extends Phaser.Scene {
     this.add
       .text(this.scale.width / 2, this.scale.height - 100, "Voltar", {
         fontSize: "24px",
-        fontFamily: "Pixelify Sans",
+        fontFamily: "tudo",
         fill: "#FFFFFF",
       })
       .setOrigin(0.5);

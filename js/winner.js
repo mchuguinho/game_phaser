@@ -13,6 +13,7 @@ class Winner extends Phaser.Scene {
     //trazer score final e nº de vidas que sobraram para esta cena
     this.score = data.score;
     this.vidas = data.nvidas;
+    this.tempo = data.tempo;
   }
 
   create() {
@@ -27,11 +28,25 @@ class Winner extends Phaser.Scene {
     this.add
       .text(
         this.scale.width / 2,
-        this.scale.height / 2 - 80,
+        this.scale.height / 2 - 160,
         "Parabéns, armazenaste a energia toda!!",
         {
           fontSize: "30px",
-          fontFamily: "Pixelify Sans",
+          fontFamily: "tudo",
+          fill: "#000000",
+          fontWeight: "bold",
+        }
+      )
+      .setOrigin(0.5);
+
+      this.add
+      .text(
+        this.scale.width / 2,
+        this.scale.height / 2 - 80,
+        "Jogaste durante " + this.tempo + " segundos!",
+        {
+          fontSize: "30px",
+          fontFamily: "tudo",
           fill: "#000000",
           fontWeight: "bold",
         }
@@ -50,7 +65,7 @@ class Winner extends Phaser.Scene {
           " vida(s)!",
         {
           fontSize: "30px",
-          fontFamily: "Pixelify Sans",
+          fontFamily: "tudo",
           fill: "#000000",
           fontWeight: "bold",
         }
@@ -78,7 +93,7 @@ class Winner extends Phaser.Scene {
         {
           fontSize: "24px",
           fill: "#FFFFFF",
-          fontFamily: "Pixelify Sans",
+          fontFamily: "tudo",
         }
       )
       .setOrigin(0.5)

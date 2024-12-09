@@ -29,7 +29,7 @@ class WorldScene extends Phaser.Scene {
     this.vidasText = this.add
       .text(360, 16, "Vidas: " + this.vidas, {
         fontSize: "18px",
-        fontFamily: "Pixelify Sans",
+        fontFamily: "tudo",
         fill: "#ffffff",
         backgroundColor: "#ff0000",
         padding: { x: 10, y: 5 },
@@ -105,7 +105,7 @@ class WorldScene extends Phaser.Scene {
     this.scoreText = this.add
       .text(16, 16, "Energia coletada: 0", {
         fontSize: "18px",
-        fontFamily: "Pixelify Sans",
+        fontFamily: "tudo",
         fill: "#ffffff",
         backgroundColor: "#ff0000",
         padding: { x: 10, y: 5 },
@@ -115,7 +115,7 @@ class WorldScene extends Phaser.Scene {
     this.scoreStoredText = this.add
       .text(575, 16, "Energia armazenada: 0", {
         fontSize: "18px",
-        fontFamily: "Pixelify Sans",
+        fontFamily: "tudo",
         fill: "#ffffff",
         backgroundColor: "#ff0000",
         padding: { x: 10, y: 5 },
@@ -127,7 +127,7 @@ class WorldScene extends Phaser.Scene {
     this.vidasText = this.add
       .text(360, 16, "Vidas: " + this.vidas, {
         fontSize: "18px",
-        fontFamily: "Pixelify Sans",
+        fontFamily: "tudo",
         fill: "#ffffff",
         backgroundColor: "#ff0000",
         padding: { x: 10, y: 5 },
@@ -168,6 +168,35 @@ class WorldScene extends Phaser.Scene {
     this.time.addEvent({
       delay: 1500,
       callback: this.moverInimigos,
+      callbackScope: this,
+      loop: true,
+    });
+
+    //criar um timer
+    this.timerText = this.add
+      .text(20, this.scale.height - 40, "Tempo: 00:00", {
+        fontSize: "30px",
+        fontFamily: "tudo",
+        fill: "#fff",
+      })
+      .setScrollFactor(0);
+
+    // Inicializa o contador de tempo
+    this.startTime = 0;
+
+    // Evento para atualizar o timer
+    this.time.addEvent({
+      delay: 1000, // Atualiza a cada segundo
+      callback: () => {
+        this.startTime++;
+        const minutes = Math.floor(this.startTime / 60);
+        const seconds = this.startTime % 60;
+        const formattedTime = `${String(minutes).padStart(2, "0")}:${String(
+          seconds
+        ).padStart(2, "0")}`;
+        console.log("Timer atualizado:", formattedTime);
+        this.timerText.setText(`Tempo: ${formattedTime}`);
+      },
       callbackScope: this,
       loop: true,
     });
@@ -223,9 +252,12 @@ class WorldScene extends Phaser.Scene {
         }
       }
     } else if (this.gameover) {
-      this.scene.start("GameOver");
+      const tempo = this.startTime;
+      this.scene.start("GameOver", {tempo: tempo});
     } else {
+      const tempo = this.startTime;
       this.scene.start("Winner", {
+        tempo: tempo,
         nvidas: this.vidas,
         score: this.scoreStored,
       });

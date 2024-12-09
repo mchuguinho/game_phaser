@@ -17,7 +17,7 @@ class Home extends Phaser.Scene {
     this.add
       .text(this.scale.width / 2, 150, "Energizer", {
         fontSize: "50px",
-        fontFamily: "Pixelify Sans",
+        fontFamily: "tudo",
         fill: "#000000",
         fontWeight: "bolder",
       })
@@ -40,7 +40,7 @@ class Home extends Phaser.Scene {
       .text(this.scale.width / 2, this.scale.height / 2, "Começar a jogar", {
         fontSize: "24px",
         fill: "#FFFFFF",
-        fontFamily: "Pixelify Sans",
+        fontFamily: "tudo",
       })
       .setOrigin(0.5)
       .setInteractive();
@@ -79,7 +79,7 @@ class Home extends Phaser.Scene {
       .text(this.scale.width / 2, this.scale.height / 2 + 60, "Como jogar", {
         fontSize: "24px",
         fill: "#FFFFFF",
-        fontFamily: "Pixelify Sans",
+        fontFamily: "tudo",
       })
       .setOrigin(0.5)
       .setInteractive();
