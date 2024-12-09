@@ -26,7 +26,7 @@ class GameOver extends Phaser.Scene {
     this.add
       .text(
         this.scale.width / 2,
-        this.scale.height / 2,
+        this.scale.height / 2 - 80,
         "Perdeu as vidas todas!",
         {
           fontSize: "40px",
@@ -40,7 +40,7 @@ class GameOver extends Phaser.Scene {
       this.add
       .text(
         this.scale.width / 2,
-        this.scale.height / 2 + 80,
+        this.scale.height / 2,
         "Jogaste durante " + this.tempo + " segundos!",
         {
           fontSize: "30px",
@@ -55,7 +55,7 @@ class GameOver extends Phaser.Scene {
     const goBackBg = this.add
       .rectangle(
         this.scale.width / 2,
-        this.scale.height / 2 + 160,
+        this.scale.height / 2 + 80,
         300, //largura do botao
         40, //altura do botao
         0xff0000, // cor do botao
@@ -67,7 +67,7 @@ class GameOver extends Phaser.Scene {
     const goBack = this.add
       .text(
         this.scale.width / 2,
-        this.scale.height / 2 + 160,
+        this.scale.height / 2 + 80,
         "Voltar ao menu principal",
         {
           fontSize: "24px",
